@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 09.12.13
+  Time: 1:29
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core_rt">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <ui:composition>
+    <h:form>
+    <div class="image"><h:graphicImage  style="position: relative; max-width: 100%" value="/resources/images/header.jpg"></h:graphicImage></div>
+        <div class="body1">
+            <h:outputLabel value="Загрузка песни" style="color: orange; font-size: 30px; line-height: 300%"/>
+            <table style="border: 0;" >
+            <tr>
+                <td valign="top"><h:outputLabel value=" "/></td>
+
+            </tr>
+            <tr>
+                <td valign="top"><h:outputLabel value="Название" for = "name" style="color: white; font-size: 20px"/></td>
+                <td valign="top"><h:inputText style="width: 300px" id="name" value="#{songBean.name}"/></td>
+            </tr>
+                <tr>
+                    <td valign="top"><h:outputLabel value="Исполнитель" for = "artist" style="color: white; font-size: 20px"/></td>
+                    <td valign="top"><h:inputText style="width: 300px" id="artist" value="#{songBean.artist}"/></td>
+                </tr>
+                <tr>
+                    <td valign="top"><h:outputLabel value="Альбом" for = "album" style="color: white; font-size: 20px"/></td>
+                    <td valign="top"><h:inputText style="width: 300px" id="album" value="#{songBean.album}"/></td>
+                </tr>
+                <tr>
+                    <td valign="top"><h:outputLabel value="url" for = "url" style="color: white; font-size: 20px"/></td>
+                    <td valign="top"><h:inputText style="width: 300px" id="url" value="#{songBean.url}"/></td>
+                </tr>
+                <tr>
+                    <td valign="top"><h:outputLabel value="Жанр" style="color: white; font-size: 20px"/></td>
+                    <td valign="top">
+                    <h:selectOneMenu value="#{songBean.genre}">
+                        <f:selectItem itemValue="Hip Hop" itemLabel="Hip Hop" />
+                        <f:selectItem itemValue="Jazz" itemLabel="Jazz" />
+                        <f:selectItem itemValue="Pop" itemLabel="Pop" />
+                        <f:selectItem itemValue="Rock" itemLabel="Rock" />
+                        <f:selectItem itemValue="Folk" itemLabel="Folk" />
+                        <f:selectItem itemValue="R &amp; B" itemLabel="R &amp; B" />
+                        <f:selectItem itemValue="Other" itemLabel="Other" />
+
+                    </h:selectOneMenu>
+                    </td>
+                </tr>
+            </table>
+            <c:if test="#{userBean.birthDate!=null}"><h:commandButton value="Загрузить" style="background-color: orange;" action="#{songBean.successfulUpload}"/></c:if>
+
+        </div>
+    </h:form>
+    </ui:composition>
+</h:body>
+
+</html>

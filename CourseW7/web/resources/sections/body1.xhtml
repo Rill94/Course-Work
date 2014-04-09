@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 25.11.13
+  Time: 13:09
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jstl/core_rt"
+        >
+
+<h:head>
+
+    <title>Simple JSF Facelets page</title>
+    <h:outputStylesheet library="css" name="styles.css"/>
+
+</h:head>
+<f:metadata http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+
+
+<h:body>
+    <ui:composition>
+    <div class="image"><h:graphicImage  style="position: relative; max-width: 100%" value="/resources/images/header.jpg"></h:graphicImage></div>
+    <div class="body1">
+        <f:view>
+            <h:form>
+                    <table style="border: 0;" >
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Логин" for = "login" style="color: white; font-size: 20px"/></td>
+                            <td valign="top"><h:inputText style="width: 300px" id="login" value="#{userBean.login}"/>
+                                <!--<h:messages style="color:red"/>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Пароль" for = "password1" style="color: white; font-size: 20px"/></td>
+                            <td valign="top"><h:inputSecret style="width: 300px" id="password1" value="#{userBean.password}"/></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Повторите пароль" for = "password2" style="color: white; font-size: 20px"/></td>
+                            <td valign="top"><h:inputSecret style="width: 300px" id="password2" value="#{userBean.password}"/></td>
+
+                        </tr>
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Email" for = "email" style="color: white; font-size: 20px"/></td>
+                            <td valign="top"><input type="email" style="width: 300px" id="email" value="#{userBean.email}"/></td>
+                            <!--<h:messages style="color:red"/>-->
+                        </tr>
+
+                        <!--Гребанная дата рождания не работает-->
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Дата рождения" style="color: white; font-size: 20px"/></td>
+                            <td valign="top"><input type="date" value="#{userBean.birthDate}"/></td>
+                            <td valign="top"></td>
+                        </tr>
+
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Адрес" for = "address" style="color: white; font-size: 20px"/></td>
+                            <td valign="top"><h:inputText style="width: 300px" id="address" value="#{userBean.address}" /></td>
+                            <!--<h:messages style="color:red"/>-->
+                        </tr>
+
+                        <tr>
+                                <td valign="top"><h:outputLabel value="Пол" style="color: white; font-size: 20px"/></td>
+                            <td valign="top">
+                                    <h:selectOneMenu value="#{userBean.gender}">
+                                        <f:selectItem itemValue="" itemLabel="Не указано" value="#{userBean.gender}"/>
+                                        <f:selectItem itemValue="Мужской" itemLabel="Мужской" value="#{userBean.gender}" />
+                                        <f:selectItem itemValue="Женский" itemLabel="Женский" value="#{userBean.gender}"/>
+                                    </h:selectOneMenu>
+                                </td>
+                        </tr>
+                    </table>
+                <c:if test="#{userBean.birthDate!=null}"><h:commandButton value="Зарегистрироваться" action="#{userBean.successfulreg}"/></c:if>
+            </h:form>
+        </f:view>
+    </div>
+    </ui:composition>
+</h:body>
+
+</html>

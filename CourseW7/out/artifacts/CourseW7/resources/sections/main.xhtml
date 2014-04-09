@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 25.11.13
+  Time: 1:12
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <ui:composition>
+            <div class="image"><h:graphicImage  style="position: relative; max-width: 100%" value="/resources/images/header.jpg"></h:graphicImage></div>
+            <div class="body1">
+                <f:view>
+                <h:form>
+                <input class="searchbox" name="q" type="search"/>
+                <input class="searchbutton" type="submit" value="Найти"/>
+                    <div class="cell">
+                        <h:commandButton action="#{newsBean.newsRequest(1)}" style="max-width: 285px" image="/resources/images/1.jpg"/>
+                        <h:outputLabel style="max-width: 300px; color: ghostwhite" value="#{newsBean.describes[0]}"></h:outputLabel>
+
+                        <h:commandButton action="#{newsBean.newsRequest(4)}" style="max-width: 285px" image="/resources/images/4.jpg" />
+                        <h:outputLabel style="max-width: 300px; color: ghostwhite" value="#{newsBean.describes[3]}"></h:outputLabel>
+                    </div>
+                    <div class="cell">
+                        <h:commandButton action="#{newsBean.newsRequest(2)}" style="max-width: 285px" image="/resources/images/2.jpg" />
+                        <h:outputLabel style="max-width: 300px; color: ghostwhite" value="#{newsBean.describes[1]}"></h:outputLabel>
+
+                        <h:commandButton action="#{newsBean.newsRequest(5)}" style="max-width: 285px" image="/resources/images/5.jpg" />
+                        <h:outputLabel style="max-width: 300px; color: ghostwhite" value="#{newsBean.describes[4]}"></h:outputLabel>
+                    </div>
+                    <div class="cell">
+                        <h:commandButton action="#{newsBean.newsRequest(3)}" style="max-width: 285px" image="/resources/images/3.jpg" />
+                        <h:outputLabel style="max-width: 300px; color: ghostwhite" value="#{newsBean.describes[2]}"></h:outputLabel>
+
+                        <h:commandButton action="#{newsBean.newsRequest(6)}" style="max-width: 285px" image="/resources/images/6.jpg" />
+                        <h:outputLabel style="max-width: 300px; color: ghostwhite" value="#{newsBean.describes[5]}"></h:outputLabel>
+                    </div>
+
+                    <h:commandLink value="Страница для админов" action="/protected/somepage"></h:commandLink>
+
+                </h:form>
+                </f:view>
+            </div>
+
+    </ui:composition>
+</h:body>
+
+</html>

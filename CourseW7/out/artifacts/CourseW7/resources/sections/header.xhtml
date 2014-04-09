@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 23.11.13
+  Time: 22:41
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:c="http://java.sun.com/jstl/core_rt">
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+</h:head>
+
+<h:body>
+        <ui:composition>
+                <f:view>
+                    <h:form id="enter">
+
+                        <table style="border: 0;float: left">
+                            <tr>
+                                <td class="catInBox"><span>C</span><span>a</span><span>t</span><span>I</span><span>n</span><span>B</span><span>o</span><span>x</span></td>
+                                <td><h:commandButton value="ТОП-10" action="top10" styleClass="top10"/></td>
+                                <td><h:commandButton value="НОВИНКИ" action="registration" styleClass="new"/></td>
+                                <td><h:commandButton value="НОВОСТИ" action="registration" styleClass="news"/></td>
+
+                            </tr>
+                        </table>
+
+                        <table style="border: 0;margin: 0 auto;" align="right">
+                            <tr>
+                            <td valign="top">
+                                <!--<h:outputLabel value="Привет," rendered=" #{userBean.logged == true}" style="color: white; font-size: 20px;"></h:outputLabel>-->
+                                <!--<h:outputLabel value="#{userBean.login}" rendered="#{userBean.logged == true}" style="color: orange; font-size: 20px;"></h:outputLabel>-->
+                                <!--<h:outputLabel value="!" rendered="#{userBean.logged == true}" style="color: white; font-size: 20px;"></h:outputLabel>-->
+                                <h:outputLabel value="Привет, Имя!" style="color: white; font-size: 20px;"></h:outputLabel>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <h:commandLink value="Выход" rendered="#{userBean.logged == true}" style="color: white; font-size: 20px;" action="#{userBean.exit}"></h:commandLink>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                <h:commandLink value="Загрузить в коробку" action="upload" style="color: gray" rendered="#{userBean.logged == true}"></h:commandLink>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <c:if test="#{userBean.logged==false}">
+                        <table style="border: 0;margin: 0 auto;" align="right">
+                            <tr>
+                                <td valign="top"><h:outputLabel value="Логин" for = "login" style="color: darkgray" rendered="#{userBean.logged==false}"/></td>
+                                <td valign="top"><h:inputText id="login" value="#{userBean.login}" rendered="#{userBean.logged==false}"/>
+                                </td>
+                            </tr><tr>
+                            <td valign="top"><h:outputLabel value="Пароль" for = "password" style="color: darkgray" rendered="#{userBean.logged==false}"/></td>
+                            <td valign="top"><h:inputSecret id="password" value="#{userBean.password}" rendered="#{userBean.logged==false}"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                            <tr>
+                                <td valign="top"><h:commandButton value="Войти" action="#{userBean.enter(userBean.login, userBean.password)}" rendered="#{userBean.logged==false}"/></td>
+                                <td valign="top"><h:commandButton value="Регистрация" action="registration" rendered="#{userBean.logged==false}"/></td>
+                            </tr>
+                        </table>
+                        </c:if>
+                    </h:form>
+                </f:view>
+        </ui:composition>
+</h:body>
+</html>

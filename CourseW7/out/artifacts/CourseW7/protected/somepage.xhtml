@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 19.12.13
+  Time: 0:54
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core_rt"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:dataTable var="users" value="#{userBean.users}" paginator="true" rows="10" selection="#{userBean.selectedUsers}">
+            <f:facet name="header">
+                Пользователи
+            </f:facet>
+
+            <p:column sortBy="login" headerText="Login">
+                <h:outputText value="#{users.login}"/>
+            </p:column>
+
+            <p:column sortBy="email" headerText="Email">
+                <h:outputText value="#{users.email}"/>
+            </p:column>
+
+            <p:column sortBy="birthDate" headerText="BirthDate">
+                <h:outputText value="#{users.birthDate.toString()}"/>
+            </p:column>
+
+            <p:column sortBy="birthDate" headerText="Age">
+                <h:outputText value="#{users.calculateAge(users.birthDate)}"/>
+            </p:column>
+
+
+
+        </p:dataTable>
+    </h:form>
+
+</h:body>
+
+</html>

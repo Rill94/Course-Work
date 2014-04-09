@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 09.12.13
+  Time: 1:20
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+
+<h:body>
+    <div id="page">
+
+        <div id = "body">
+            <ui:include src="/resources/sections/body.xhtml"/>
+            <ui:include src="/resources/sections/upload.xhtml"/>
+        </div>
+
+
+
+        <div id = "header">
+            <ui:insert name="header">
+                <ui:include src="/resources/sections/header.xhtml"/>
+            </ui:insert>
+        </div>
+
+    </div>
+</h:body>
+
+</html>
